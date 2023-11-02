@@ -25,15 +25,16 @@ public class C04_ManageMethods {
         Thread.sleep(3000);
 
         //Sayfayi simge durumuna getirin
-        System.out.println("Sayfanın ölçüleri = " + driver.manage().window().getSize());
+        driver.manage().window().minimize();
 
         //simge durumunda 3 saniye bekleyip sayfayi maximize yapin
         Thread.sleep(3000);
-        driver.manage().window().minimize();
+        driver.manage().window().maximize();
+
 
         //Sayfanin konumunu ve boyutlarini maximize durumunda yazdirin
         Thread.sleep(3000);
-        driver.manage().window().maximize();
+
         System.out.println("Maximize durumunda  boyutu = " + driver.manage().window().getPosition());
         System.out.println("Maximize durumunda konumu = " + driver.manage().window().getSize());
 
