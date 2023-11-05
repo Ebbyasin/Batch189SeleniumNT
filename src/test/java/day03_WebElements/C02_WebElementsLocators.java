@@ -53,7 +53,7 @@ public class C02_WebElementsLocators {
         //Sayfadaki linklerin metinleri varsa konsola yazdıralım
         for (WebElement w:links) {
             if (!w.getText().isEmpty()){
-                System.out.println(w.getText());
+                System.out.println(w.getText());//Burdaki mantığı anlamadım,muhakkak sor
             }
 
         }

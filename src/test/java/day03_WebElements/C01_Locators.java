@@ -21,18 +21,42 @@ public class C01_Locators {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
+        //cntrl+shift+c -->windowslarda sag tık incele(inspect) tuşu işlemini yapar
+        //hoverover -->üzerinde gezinmek
+
+        /*
+            Locators-->konum belirleyici,yer bulucu
+        Bir webelementi locate etmek için 8 tane locatorumuz var(id,name,classname,tagname,linktext,
+        partiallinktext,xpath,cssselector
+        Bunlardan 6 tanesi html kodlarında bulunan taglar ve attributelerle ilgilidir.
+        Son iki tanesi yani xpath ve css selector,bunların kombinasyonuyla ilgili,aslında çok fazla attribute
+        var neden bunlar dersen,en çok kullanılan bu attributeler o yüzden.
+        Adres tespit ettik tamam driver a nasıl söylerim adresi,findElement() methoduyla..
+
+         */
+
+
         //Amazon sayfasına gidiniz
         driver.get("https://amazon.com");
 
         //Arama kutusunu locate ediniz ve iphone yazdırıp aratınız
         /*
-        1.yol
-        WebElement aramaKutusu=driver.findElement(By.id("twotabsearchtextbox"));
-        aramaKutusu.sendKeys("iphone");
-        aramaKutusu.submit();
-        */
+        1.yol-arama kutusunu başka yerlerde de kullanacaksak tercih ederiz.
+        WebElement aramaKutusu=driver.findElement(By.id("twotabsearchtextbox"));**normalde twotabsearchtextbox iki tane gözüküyor
+        aramaKutusu.sendKeys("iphone");                               **ama diğerini hemen üstünde görüyoruz,o id değil,for
+        aramaKutusu.submit();                                    **diye bir attribute ait.yani iki tane id yok aynı sonucu veren
+                                                    **bir tane id olduğu için orda 2 gözüksede problem yok
+         */
+
+        //**************ÖNEMLİ*********
+        //Bize interwiew de sorarlar,kaç tane locator var,sen hangisini tercih edersin..8 tane var ve ben varsa id ile almayı
+        //tercih ederim,çünkü unique dir,bensersiz olur,böylelikle rahatlıkla alabilirim,denir..
+
+
+
+
         /*
-        2.yol
+        2.yol-sadece bir kere kullanacaksak bu yolu tercih ederiz.
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("iphone", Keys.ENTER);
         */
 
@@ -47,7 +71,7 @@ public class C01_Locators {
 
         /*
         Locate ettiğimiz webelement <input> tagina sahip ise o webelemente sendKeys methodu aracılığı ile
-        istediğimiz yaziyi gönderebiliriz
+        istediğimiz yaziyi gönderebiliriz,yani sendKeys methodu input tagı olan webelement lerde uygulanabilir
         Eger bir arama kutusunu locate edip text gonderirsek iki sekilde enter tusuna bastirabiliriz
         1) submit() methodu
         2) Keys.Enter
